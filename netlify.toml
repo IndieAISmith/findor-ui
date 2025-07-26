@@ -1,0 +1,10 @@
+[build]
+  # This is the standard command to build a Vite project for production.
+  command = "npm run build"
+  # Vite's default output directory is `dist`.
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
