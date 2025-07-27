@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ClerkProvider } from '@clerk/clerk-react';
 import App from './App';
+import Skeleton from './components/Skeleton';
+import './components/Skeleton.css';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -9,6 +11,9 @@ if (!rootElement) {
 }
 
 const root = ReactDOM.createRoot(rootElement);
+
+// Render the skeleton loader initially
+root.render(<Skeleton />);
 
 const renderApp = (publishableKey: string) => {
   root.render(
