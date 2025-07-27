@@ -1,0 +1,10 @@
+# Netlify security configuration
+# Allow Clerk publishable keys as they are meant to be public-facing
+
+[secrets]
+  # Ignore Clerk publishable keys in secret detection
+  ignore_patterns = [
+    "VITE_CLERK_PUBLISHABLE_KEY",
+    "pk_test_.*",
+    "pk_live_.*"
+  ]
