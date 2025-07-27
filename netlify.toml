@@ -1,7 +1,15 @@
+[[redirects]]
+  from = "/api/get-clerk-key"
+  to = "/.netlify/functions/get-clerk-key"
+  status = 200
+
+[[redirects]]
+  from = "/api/get-gemini-key"
+  to = "/.netlify/functions/get-gemini-key"
+  status = 200
+
 [build]
-  # This is the standard command to build a Vite project for production.
   command = "npm run build"
-  # Vite's default output directory is `dist`.
   publish = "dist"
 
 [[redirects]]

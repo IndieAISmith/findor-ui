@@ -1,14 +1,7 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ClerkProvider } from '@clerk/clerk-react';
 import App from './App';
-
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
-
-if (!PUBLISHABLE_KEY) {
-  throw new Error("Missing Clerk Publishable Key");
-}
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -16,10 +9,34 @@ if (!rootElement) {
 }
 
 const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
-      <App />
-    </ClerkProvider>
-  </React.StrictMode>
-);
+
+const renderApp = (publishableKey: string) => {
+  root.render(
+    <React.StrictMode>
+      <ClerkProvider publishableKey={publishableKey} afterSignOutUrl="/">
+        <App />
+      </ClerkProvider>
+    </React.StrictMode>
+  );
+};
+
+const fetchKeyAndRender = async () => {
+  try {
+    const response = await fetch('/api/get-clerk-key');
+    if (!response.ok) {
+      throw new Error(`Failed to fetch key: ${response.statusText}`);
+    }
+    const data = await response.json();
+    const key = data.key;
+
+    if (!key) {
+      throw new Error("Missing Clerk Publishable Key");
+    }
+    renderApp(key);
+  } catch (error) {
+    console.error(error);
+    root.render(<div>Something went wrong fetching the key.</div>);
+  }
+};
+
+fetchKeyAndRender();

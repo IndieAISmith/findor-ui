@@ -4,7 +4,7 @@
 [secrets]
   # Ignore Clerk publishable keys in secret detection
   ignore_patterns = [
-    "VITE_CLERK_PUBLISHABLE_KEY",
+    
     "pk_test_.*",
     "pk_live_.*"
   ]
