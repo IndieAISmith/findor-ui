@@ -75,6 +75,118 @@ const DOCS_DATA = {
       }
     },
     {
+      "name": "YouTube Scraper",
+      "method": "POST",
+      "path": "/youtube/scraper",
+      "description": "This endpoint allows you to scrape YouTube for videos based on a search query.",
+      "request_body": {
+        "video_title": "string (required)"
+      },
+      "response_example": [
+        {
+            "id": "https://www.youtube.com/watch?v=4GDQYgxsSxo",
+            "title": "हलवाई जैसा फाफड़ा बनाने का तरीका |Gujarati Fafda ki recipe ...",
+            "url": "https://www.youtube.com/watch?v=4GDQYgxsSxo",
+            "publishedDate": "2020-08-09T04:09:41.353Z",
+            "author": null
+        },
+        {
+            "id": "https://www.youtube.com/shorts/QAZfg-DEegI",
+            "title": "Gujarati Fafda Recipe | Easy and perfect way to make Gujarati ...",
+            "url": "https://www.youtube.com/shorts/QAZfg-DEegI",
+            "publishedDate": "2025-07-19T04:09:41.353Z",
+            "author": null
+        },
+        {
+            "id": "https://www.youtube.com/watch?v=C5xTHQtWBDM",
+            "title": "Fafda recipe|How to make Fafda| Gujrati fada recipe|Cooking ...",
+            "url": "https://www.youtube.com/watch?v=C5xTHQtWBDM",
+            "publishedDate": "2020-08-09T04:09:41.353Z",
+            "author": null
+        }
+      ]
+    },
+	{
+      "name": "Website Scraper",
+      "method": "POST",
+      "path": "/website/scraper",
+      "description": "This endpoint allows you to scrape the content of a given website URL.",
+      "request_body": {
+        "website_url": "string (required)"
+      },
+      "response_example": [
+        {
+            "id": "https://copilot.microsoft.com/",
+            "title": "Microsoft Copilot: Your everyday AI companion",
+            "url": "https://copilot.microsoft.com",
+            "publishedDate": "2010-01-01T00:00:00.000Z",
+            "author": "",
+            "text": "## Hi there. What should we dive into today?",
+            "summary": "I am an AI companion.\n"
+        }
+      ]
+    },
+    {
+      "name": "News Scraper",
+      "method": "POST",
+      "path": "/news/scraper",
+      "description": "This endpoint allows you to scrape news articles based on a search query.",
+      "request_body": {
+        "search": "string (required)"
+      },
+      "response_example": [
+        {
+            "id": "https://apnews.com/article/imf-world-economy-trump-tariff-china-f384c9c165b0c7152edb53d66a9ebd6b",
+            "title": "IMF upgrades outlook for global economy, citing less-than- ...",
+            "url": "https://apnews.com/article/imf-world-economy-trump-tariff-china-f384c9c165b0c7152edb53d66a9ebd6b",
+            "publishedDate": "2025-07-29T13:00:36.000Z",
+            "author": "By PAUL WISEMAN",
+            "text": "WASHINGTON (AP) — The International Monetary Fund is upgrading the economic outlook for the United States and the world this year and next because President Donald Trump’s protectionist trade policies have so far proven less damaging than expected... [Content trimmed for brevity]",
+            "image": "https://dims.apnews.com/dims4/default/dcac1a4/2147483647/strip/true/crop/700x394+0+28/resize/1440x810!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png",
+            "favicon": "https://apnews.com/apple-touch-icon.png"
+        },
+        {
+            "id": "https://www.youtube.com/watch?v=R0pnn6dMLEU",
+            "title": "Trump Tariff: China Demands US End Unilateral ...",
+            "url": "https://www.youtube.com/watch?v=R0pnn6dMLEU",
+            "publishedDate": "2025-05-29T00:00:00.000Z",
+            "author": "WION",
+            "text": "© 2025 Google LLC",
+            "favicon": "https://www.youtube.com/s/desktop/ba3a814f/img/logos/favicon_32x32.png"
+        },
+        {
+            "id": "https://fortune.com/2025/04/07/trump-tariff-china-50-percent-retaliation-trade-war-stock-selloff/",
+            "title": "Trump threatens to add another 50% tariff on China ...",
+            "url": "https://fortune.com/2025/04/07/trump-tariff-china-50-percent-retaliation-trade-war-stock-selloff/",
+            "publishedDate": "2025-04-07T00:00:00.000Z",
+            "author": "Jason Ma",
+            "text": "The U.S.-China trade war could get a lot hotter as President Donald Trump threatened Beijing with an additional 50% tariff unless it backs down from retaliating against his earlier tariff... [Content trimmed for brevity]",
+            "image": "https://fortune.com/img-assets/wp-content/uploads/2025/04/GettyImages-1152691919-e1744041673941.jpg?resize=1200,600",
+            "favicon": "https://fortune.com/icons/favicons/favicon.ico"
+        }
+      ]
+    },
+    {
+      "name": "LinkedIn Scraper",
+      "method": "POST",
+      "path": "/linkedin/scraper",
+      "description": "This endpoint allows you to scrape LinkedIn for profiles based on a name.",
+      "request_body": {
+        "profile_name": "string (required)"
+      },
+      "response_example": [
+        {
+            "id": "https://in.linkedin.com/in/amitabh-bachchan-06767a23",
+            "title": "Amitabh Bachchan - Bollywood",
+            "url": "https://in.linkedin.com/in/amitabh-bachchan-06767a23",
+            "publishedDate": "2025-01-01T00:00:00.000Z",
+            "author": "",
+            "text": "LinkedIn and 3rd parties use essential and non-essential cookies to provide, secure, analyze and improve our Services, and to show you relevant ads... [Content trimmed for brevity]",
+            "image": "https://static.licdn.com/aero-v1/sc/h/1c5u578iilxfi4m4dvc4q810q"
+        }
+      ]
+    },
+    {
       "name": "Citation Scraper",
       "method": "POST",
       "path": "/search/scraper",
